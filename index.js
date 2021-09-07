@@ -21,12 +21,12 @@ bot.on("message", async (msg) => {
 
   if (msg.text == "/start" && msg.chat.id == process.env.ADMIN_CHAT_ID) {
     config.status = true;
-    bot.sendMessage(process.env.ADMIN_CHAT_ID, "Status: Running...");
+    bot.sendMessage(process.env.ADMIN_CHAT_ID, "Bot đã sẵn sàng");
   }
 
   if (msg.text == "/stop" && msg.chat.id == process.env.ADMIN_CHAT_ID) {
     config.status = false;
-    bot.sendMessage(process.env.ADMIN_CHAT_ID, "Status: Stopped");
+    bot.sendMessage(process.env.ADMIN_CHAT_ID, "Bot dừng hoạt động");
   }
   if (msg.text.includes("/set") && msg.chat.id == process.env.ADMIN_CHAT_ID) {
     let coinName = msg.text.replace("/set ", "");
