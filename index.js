@@ -10,7 +10,7 @@ const binanceClient = new ccxt.binance({
 });
 
 const config = {
-  status: true,
+  status: false,
   coinToBuy: "BTC",
 };
 
@@ -49,7 +49,7 @@ const removeZeroValueBalance = (balance) => {
 };
 
 const getBalance = async () => {
-  let balanceResult = await binanceClient.fetchBalance();
+  let balanceResult = await binanceClient.fetchBalance({ recvWindow: 59000 });
   let balance = removeZeroValueBalance(balanceResult.total);
   return balance;
 };
@@ -63,6 +63,7 @@ const isHaveUSD = async (balance) => {
 };
 
 const run = async () => {
+  if (config.status === false) return;
   let balance = await getBalance();
   // console.log(balance); for debug
   let condition = await isHaveUSD(balance);
@@ -79,7 +80,7 @@ const run = async () => {
       await binanceClient.createMarketOrder(
         pairBUSD,
         "buy",
-        Number(balance.BUSD / price)
+        Number(balance.BUSD / price),
       );
     } catch (error) {
       console.log(error.message);
@@ -106,5 +107,7 @@ setInterval(run, 3000);
 const spamRunning = () => {
   bot.sendMessage(process.env.ADMIN_CHAT_ID, "Bot server: OK !");
 };
-const time = 1000 * 1 * 60 * 60 * 12
+const time = 1000 * 1 * 60 * 60 * 12;
+
+spamRunning();
 setInterval(spamRunning, time);
