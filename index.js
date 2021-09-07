@@ -105,7 +105,7 @@ const run = async () => {
 setInterval(run, 3000);
 
 const spamRunning = () => {
-  bot.sendMessage(process.env.ADMIN_CHAT_ID, "Bot server: OK !");
+  bot.sendMessage(process.env.ADMIN_CHAT_ID, "Bot đang hoạt động !!");
 };
 const time = 1000 * 1 * 60 * 60 * 12;
 
