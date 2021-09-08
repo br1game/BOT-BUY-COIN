@@ -21,12 +21,12 @@ bot.on("message", async (msg) => {
 
   if (msg.text == "/start" && msg.chat.id == process.env.ADMIN_CHAT_ID) {
     config.status = true;
-    bot.sendMessage(process.env.ADMIN_CHAT_ID, "VẪN CÒN ĐANG HOẠT ĐỘNG");
+    bot.sendMessage(process.env.ADMIN_CHAT_ID, "BÁO CÁO HOẠT ĐỘNG ĐỊNH KỲ");
   }
 
   if (msg.text == "/stop" && msg.chat.id == process.env.ADMIN_CHAT_ID) {
     config.status = false;
-    bot.sendMessage(process.env.ADMIN_CHAT_ID, "BOT ĐANG NGƯNG HOẠT ĐỘNG");
+    bot.sendMessage(process.env.ADMIN_CHAT_ID, "NGƯNG HOẠT ĐỘNG");
   }
   if (msg.text.includes("/set") && msg.chat.id == process.env.ADMIN_CHAT_ID) {
     let coinName = msg.text.replace("/set ", "");
