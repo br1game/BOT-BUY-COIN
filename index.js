@@ -21,7 +21,7 @@ bot.on("message", async (msg) => {
 
   if (msg.text == "/start" && msg.chat.id == process.env.ADMIN_CHAT_ID) {
     config.status = true;
-    bot.sendMessage(process.env.ADMIN_CHAT_ID, "HOẠT ĐỘNG");
+    bot.sendMessage(process.env.ADMIN_CHAT_ID, "VẪN CÒN ĐANG HOẠT ĐỘNG");
   }
 
   if (msg.text == "/stop" && msg.chat.id == process.env.ADMIN_CHAT_ID) {
