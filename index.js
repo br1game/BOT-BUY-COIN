@@ -2,7 +2,7 @@ require("dotenv").config();
 const TelegramBot = require("node-telegram-bot-api");
 const ccxt = require("ccxt");
 
-const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
+const bot = new TelegramBot(process.env.BOT_TOKEN, {polling: true });
 
 const binanceClient = new ccxt.binance({
   apiKey: process.env.API_KEY,
